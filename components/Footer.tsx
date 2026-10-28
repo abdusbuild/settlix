@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { services } from "@/lib/services";
-import { legalLinks, primaryPhone, site, whatsappLink } from "@/lib/site";
-import { Icon, icons } from "./Icons";
+import { legalLinks, site } from "@/lib/site";
+import FloatingEnquire from "./FloatingEnquire";
 
 const quickLinks = [
   { href: "/about", label: "About Us" },
@@ -68,14 +68,7 @@ export default function Footer() {
         </div>
       </footer>
 
-      <div className="float-actions">
-        <a href={whatsappLink()} className="float-btn float-wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-          <Icon d={icons.whatsapp} />
-        </a>
-        <a href={`tel:${primaryPhone.tel}`} className="float-btn float-call" aria-label="Call Settlix">
-          <Icon d={icons.phone} />
-        </a>
-      </div>
+      <FloatingEnquire />
     </>
   );
 }
