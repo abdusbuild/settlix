@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import CtaBand from "@/components/CtaBand";
@@ -39,6 +40,7 @@ export default async function ServicePage({ params }: Props) {
           serviceType: service.title,
           description: service.intro,
           url: `${site.url}/services/${service.slug}`,
+          image: `${site.url}/images/services/${service.slug}.jpg`,
           provider: { "@id": orgId },
           areaServed: { "@type": "Country", name: "India" },
         }}
@@ -57,6 +59,9 @@ export default async function ServicePage({ params }: Props) {
       <section className="section">
         <div className="container detail-grid">
           <div className="detail-main">
+            <div className="cover">
+              <Image src={`/images/services/${service.slug}.jpg`} alt={service.imageAlt} fill priority sizes="(max-width: 920px) 100vw, 760px" />
+            </div>
             <div className="reveal">
               <h2>Is this for you?</h2>
               <ul className="check-list">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import CtaBand from "@/components/CtaBand";
 import PageHero from "@/components/PageHero";
+import RightsArt from "@/components/RightsArt";
 import { borrowerRights, complaintSteps, rights } from "@/lib/content";
 import { pageMeta } from "@/lib/seo";
 import { primaryPhone } from "@/lib/site";
@@ -16,6 +17,7 @@ export default function RightsPage() {
         title="Owing money doesn't take away your dignity"
         intro="RBI rules on fair practices and recovery agents apply to every bank and NBFC. Here's what that means for you, and what to do if those rules are broken."
         crumbs={[{ href: "/your-rights", label: "Your Rights" }]}
+        art={<RightsArt />}
       />
 
       <section className="section rights">

@@ -44,6 +44,27 @@ export const navLinks = [
   { href: "/contact", label: "Contact" },
 ];
 
+export type NavChild = { href: string; label: string; desc?: string };
+export type NavItem = { label: string; href?: string; children?: NavChild[]; allHref?: string };
+
+// Header menu: a few top-level items, the rest grouped into hover dropdowns.
+// The Services dropdown is filled from lib/services by the layout, so that data stays out of the client bundle.
+export const navMenu: NavItem[] = [
+  { label: "Services", allHref: "/services", children: [] },
+  {
+    label: "Resources",
+    children: [
+      { href: "/how-it-works", label: "How It Works", desc: "Our 5-step settlement process" },
+      { href: "/settlement-calculator", label: "Settlement Estimator", desc: "See an indicative settlement range" },
+      { href: "/your-rights", label: "Your Rights", desc: "What recovery agents can't do" },
+      { href: "/faq", label: "FAQs", desc: "Straight answers to common questions" },
+      { href: "/blog", label: "Blog", desc: "Guides on loans, CIBIL and recovery" },
+    ],
+  },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+];
+
 export const legalLinks = [
   { href: "/privacy-policy", label: "Privacy Policy" },
   { href: "/terms", label: "Terms of Use" },

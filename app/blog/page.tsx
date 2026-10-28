@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import CtaBand from "@/components/CtaBand";
 import PageHero from "@/components/PageHero";
@@ -22,6 +23,9 @@ export default function BlogPage() {
           <div className="post-grid">
             {posts.map((p) => (
               <Link href={`/blog/${p.slug}`} className="post-card reveal" key={p.slug}>
+                <div className="post-thumb">
+                  <Image src={`/images/blog/${p.slug}.jpg`} alt={p.imageAlt} fill sizes="(max-width: 640px) 100vw, 560px" />
+                </div>
                 <span className="post-cat">{p.category}</span>
                 <h2>{p.title}</h2>
                 <p>{p.description}</p>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CtaBand from "@/components/CtaBand";
+import HowItWorksArt from "@/components/HowItWorksArt";
 import PageHero from "@/components/PageHero";
 import { documents, steps } from "@/lib/content";
 import { pageMeta } from "@/lib/seo";
@@ -14,6 +15,7 @@ export default function HowItWorksPage() {
         title="A clear, 5-step path to resolution"
         intro="No jargon and no surprises. Here's exactly what happens from your first call with us to the day you receive your no-dues letter."
         crumbs={[{ href: "/how-it-works", label: "How It Works" }]}
+        art={<HowItWorksArt />}
       />
 
       <section className="section">

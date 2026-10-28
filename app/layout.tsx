@@ -135,7 +135,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en-IN" className={`${montserrat.variable} ${inter.variable}`}>
       <body>
         <JsonLd data={jsonLd} />
-        <Header />
+        <Header serviceLinks={services.map((s) => ({ href: `/services/${s.slug}`, label: s.title }))} />
         <main>{children}</main>
         <Footer />
         <RevealObserver />

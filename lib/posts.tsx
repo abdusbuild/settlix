@@ -6,6 +6,8 @@ export type Post = {
   description: string;
   keywords: string[];
   category: string;
+  // Cover photo lives at /images/blog/<slug>.jpg
+  imageAlt: string;
   // ISO dates (YYYY-MM-DD); set updated when the article is materially revised
   published: string;
   updated?: string;
@@ -23,6 +25,7 @@ export const posts: Post[] = [
       "Missing EMIs is not a crime in India. Here's when loan default stays a civil matter, the few situations that can turn criminal, and what lenders can actually do.",
     keywords: ["can bank send me to jail for loan", "loan default jail India", "is loan default a crime", "personal loan not paid what happens", "credit card not paid jail"],
     category: "Your Rights",
+    imageAlt: "Judge's gavel resting beside an open law book",
     published: "2026-10-28",
     readMinutes: 6,
     service: "legal-notice-replies",
@@ -103,6 +106,7 @@ export const posts: Post[] = [
       "A plain-language guide to the RBI rules recovery agents must follow in India, from calling hours to privacy, and how to complain when they cross the line.",
     keywords: ["RBI rules for recovery agents", "RBI guidelines recovery agent calling time", "recovery agent harassment complaint", "loan recovery agent rules India", "recovery agent calling relatives"],
     category: "Harassment",
+    imageAlt: "Worried man looking at his phone",
     published: "2026-10-28",
     readMinutes: 7,
     service: "anti-harassment-support",
@@ -166,6 +170,7 @@ export const posts: Post[] = [
       "What a 'Settled' status means on your credit report, how it differs from 'Closed', how long it stays, and how to rebuild your CIBIL score after a loan settlement.",
     keywords: ["loan settlement CIBIL score", "settled vs closed CIBIL", "CIBIL score after settlement", "how to remove settled status from CIBIL", "credit score after loan settlement"],
     category: "Credit Score",
+    imageAlt: "Calculator and printed charts on a desk",
     published: "2026-10-28",
     readMinutes: 6,
     service: "credit-score-rebuilding",
@@ -230,6 +235,7 @@ export const posts: Post[] = [
       "A step-by-step guide to filing a free complaint against a bank or NBFC with the RBI Ombudsman, including when you can file, what to include and what happens next.",
     keywords: ["RBI ombudsman complaint", "how to complain to RBI against bank", "cms.rbi.org.in complaint", "complaint against NBFC", "RBI integrated ombudsman scheme"],
     category: "Complaints",
+    imageAlt: "Person writing a letter at a desk",
     published: "2026-10-28",
     readMinutes: 6,
     service: "rbi-ombudsman-complaints",

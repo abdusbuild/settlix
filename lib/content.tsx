@@ -1,10 +1,10 @@
 import { icons } from "@/components/Icons";
 
 export const heroPoints = [
-  "Free, confidential first consultation",
-  "Support against abusive recovery calls & visits",
-  "Replies to legal notices through advocates",
-  "Settlement negotiation with banks & NBFCs",
+  "Free, confidential consultation",
+  "Stop abusive recovery calls",
+  "Legal notice replies by advocates",
+  "Settle with banks & NBFCs",
 ];
 
 export const trustItems = [

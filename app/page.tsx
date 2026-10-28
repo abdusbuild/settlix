@@ -4,8 +4,10 @@ import CountUp from "@/components/CountUp";
 import CtaBand from "@/components/CtaBand";
 import FaqArt from "@/components/FaqArt";
 import FaqList from "@/components/FaqList";
+import HeroVisual from "@/components/HeroVisual";
 import JsonLd from "@/components/JsonLd";
-import { Icon } from "@/components/Icons";
+import AdVideo from "@/components/AdVideo";
+import { Icon, icons } from "@/components/Icons";
 import LeadForm from "@/components/LeadForm";
 import Marquee from "@/components/Marquee";
 import RotatingWords from "@/components/RotatingWords";
@@ -24,29 +26,25 @@ export default function Home() {
       <section className="hero">
         <div className="container hero-grid">
           <div className="hero-copy">
-            <span className="eyebrow">Loan Settlement · Anti-Harassment · Legal Support</span>
             <h1>
-              Behind on EMIs and dreading the next call?{" "}
+              Behind on EMIs?{" "}
               <RotatingWords className="accent" words={["Let's settle it.", "Let's stop the calls.", "Let's end the stress."]} />
             </h1>
-            <p className="lead">
-              Settlix helps borrowers facing genuine financial hardship negotiate settlements on personal loans, credit
-              cards and business loans, while protecting them from harassment by recovery agents.
-            </p>
-            <ul className="hero-points">
-              {heroPoints.map((p) => <li key={p}>{p}</li>)}
-            </ul>
+            <p className="lead">We negotiate loan settlements with your lender and stop recovery harassment, lawfully.</p>
             <div className="hero-actions">
-              <Link href="/contact" className="btn btn-primary btn-lg">Get Free Consultation</Link>
-              <a href={whatsappLink()} className="btn btn-outline btn-lg" target="_blank" rel="noopener">WhatsApp Us</a>
+              <a href="#consult" className="btn btn-primary btn-lg">
+                Get free consultation <span className="arrow" aria-hidden="true">→</span>
+              </a>
+              <a href={whatsappLink()} className="btn btn-outline btn-lg" target="_blank" rel="noopener">
+                <Icon d={icons.whatsapp} className="btn-ico" /> WhatsApp
+              </a>
             </div>
+            <p className="hero-note">
+              <Icon d={icons.shield} /> Free &amp; confidential · Hindi or English
+            </p>
           </div>
 
-          <div className="hero-card" id="consult">
-            <h2>Request a callback</h2>
-            <p className="muted">Share a few details and our team will call you back.</p>
-            <LeadForm variant="hero" />
-          </div>
+          <HeroVisual />
         </div>
       </section>
 
@@ -79,6 +77,28 @@ export default function Home() {
                 <p>{p.text}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Brand film */}
+      <section className="section film" aria-labelledby="film-title">
+        <div className="container">
+          <div className="section-head reveal">
+            <span className="eyebrow eyebrow-light">Watch · 30 seconds</span>
+            <h2 id="film-title">Recovery calls have rules. You don&apos;t have to face them alone.</h2>
+            <p>See how Settlix stops the harassment and settles with your lender, lawfully.</p>
+          </div>
+          <div className="reveal reveal-scale">
+            <AdVideo />
+          </div>
+          <div className="film-cta reveal">
+            <a href="#consult" className="btn btn-primary btn-lg">
+              Get free consultation <span className="arrow" aria-hidden="true">→</span>
+            </a>
+            <a href={whatsappLink()} className="btn btn-outline btn-lg" target="_blank" rel="noopener">
+              <Icon d={icons.whatsapp} className="btn-ico" /> WhatsApp
+            </a>
           </div>
         </div>
       </section>
@@ -179,6 +199,30 @@ export default function Home() {
             Facing any of this? <a href={`tel:${primaryPhone.tel}`}>Call {primaryPhone.display}</a> or{" "}
             <Link href="/your-rights">read your full rights &amp; how to complain</Link>.
           </p>
+        </div>
+      </section>
+
+      {/* Callback form */}
+      <section className="section consult" id="consult">
+        <div className="container consult-grid">
+          <div className="consult-copy reveal reveal-left">
+            <span className="eyebrow">Free consultation</span>
+            <h2>Tell us what you&apos;re facing. We&apos;ll call you back.</h2>
+            <p>Share a few details about your loans and our team will call you back. The first consultation is free and completely confidential.</p>
+            <ul className="consult-points">
+              {heroPoints.map((p) => <li key={p}>{p}</li>)}
+            </ul>
+          </div>
+          <div className="hero-card-wrap reveal reveal-right">
+            <div className="hero-card">
+              <span className="hero-badge">
+                <Icon d={icons.shield} /> 100% confidential
+              </span>
+              <h2>Request a callback</h2>
+              <p className="muted">Takes under a minute.</p>
+              <LeadForm variant="hero" />
+            </div>
+          </div>
         </div>
       </section>
 

@@ -3,6 +3,8 @@ export type Service = {
   title: string;
   short: string;
   keywords: string[];
+  // Photo lives at /images/services/<slug>.jpg
+  imageAlt: string;
   icon: string;
   intro: string;
   forWhom: string[];
@@ -17,6 +19,7 @@ export const services: Service[] = [
     title: "Personal Loan Settlement",
     short: "We present your hardship case to the lender and negotiate a one-time or structured settlement you can realistically pay.",
     keywords: ["personal loan settlement", "personal loan settlement process", "one time settlement personal loan", "personal loan OTS", "unable to pay personal loan EMI", "personal loan settlement company", "personal loan settlement NOC"],
+    imageAlt: "Indian ₹500 banknotes",
     icon: "M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm0 2c-3.3 0-8 1.7-8 5v1h16v-1c0-3.3-4.7-5-8-5z",
     intro:
       "When a job loss, medical emergency or drop in income makes your personal loan EMIs impossible to keep up with, a negotiated settlement can close the account for less than the full outstanding. We help you prepare an honest hardship case and negotiate with the bank or NBFC on your behalf.",
@@ -45,6 +48,7 @@ export const services: Service[] = [
     title: "Credit Card Settlement",
     short: "Stop the cycle of interest and penalties. We negotiate with card issuers to close outstanding dues for a reduced amount.",
     keywords: ["credit card settlement", "credit card debt settlement India", "credit card one time settlement", "unable to pay credit card bill", "credit card dues settlement", "credit card closure letter"],
+    imageAlt: "Hand holding a credit card next to a laptop",
     icon: "M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 14H4v-6h16zm0-10H4V6h16z",
     intro:
       "Credit card interest of 3–4% a month, plus late fees and GST, can make a small balance grow out of control. If paying the minimum due no longer works, we help you negotiate a settlement with the card issuer and finally close the card.",
@@ -72,6 +76,7 @@ export const services: Service[] = [
     title: "Anti-Harassment Support",
     short: "We address abusive recovery agents directly and help you raise complaints so calls, threats and visits stay within the law.",
     keywords: ["recovery agent harassment", "stop recovery agent calls", "loan recovery harassment complaint", "loan app harassment", "RBI rules for recovery agents", "complaint against recovery agent"],
+    imageAlt: "Man looking anxiously at his phone",
     icon: "M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5z",
     intro:
       "Owing money doesn't take away your right to dignity. RBI rules require lenders and their recovery agents to follow fair practices. If you're being threatened, abused or shamed, we help you document it, complain formally and make it stop.",
@@ -100,6 +105,7 @@ export const services: Service[] = [
     title: "Legal Notice Replies",
     short: "Received a legal, arbitration or cheque bounce notice? Advocates we work with draft timely, proper replies on your behalf.",
     keywords: ["legal notice reply loan", "reply to bank legal notice", "loan arbitration notice", "section 138 cheque bounce", "credit card legal notice reply", "advocate for loan legal notice"],
+    imageAlt: "Wooden gavel on a white surface",
     icon: "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm2 16H8v-2h8zm0-4H8v-2h8zm-3-5V3.5L18.5 9z",
     intro:
       "A legal notice from a bank or NBFC is frightening, but ignoring it is usually the worst option. Independent advocates we work with review the notice, explain what it means for you and send a proper, timely reply that protects your position.",
@@ -128,6 +134,7 @@ export const services: Service[] = [
     title: "Business & MSME Loans",
     short: "Business loans and overdrafts under stress? We help restructure or settle unsecured business credit with your lenders.",
     keywords: ["business loan settlement", "MSME loan settlement", "business loan restructuring", "unsecured business loan OTS", "guarantor liability business loan"],
+    imageAlt: "Shopkeeper writing in his accounts book",
     icon: "M20 7h-4V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM10 5h4v2h-4z",
     intro:
       "Lost orders, delayed payments from customers or a slow season can leave a small business unable to service its loans. We help proprietors and MSMEs approach lenders for restructuring or settlement of unsecured business credit before things get worse.",
@@ -154,6 +161,7 @@ export const services: Service[] = [
     title: "Multiple Loan Resolution",
     short: "Juggling several loans and cards? We prioritise accounts and build one plan to get you debt-free step by step.",
     keywords: ["multiple loans settlement", "debt consolidation India", "too many loans help", "debt trap help", "multiple EMI problem"],
+    imageAlt: "Hands opening an empty wallet",
     icon: "M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z",
     intro:
       "When you have several personal loans, cards and app loans at once, it's easy to end up paying whoever shouts loudest. We list every debt, rank them by cost and risk, and build one plan that clears them in a sensible order.",
@@ -180,6 +188,7 @@ export const services: Service[] = [
     title: "Complaints & RBI Ombudsman",
     short: "We file complaints through the lender's grievance channel and escalate to the RBI Integrated Ombudsman when needed.",
     keywords: ["RBI ombudsman complaint", "RBI CMS complaint", "complaint against bank", "complaint against NBFC", "CIBIL dispute", "bank grievance redressal"],
+    imageAlt: "People reviewing documents at a table",
     icon: "M21 6h-2v9H6v2a1 1 0 0 0 1 1h11l4 4V7a1 1 0 0 0-1-1zm-4 6V3a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v14l4-4h10a1 1 0 0 0 1-1z",
     intro:
       "Wrong charges, unfair recovery, a settlement letter that never arrives, or a closed account still showing as overdue: these are all legitimate complaints. We help you raise them the right way, with the right documents, so they get resolved.",
@@ -206,6 +215,7 @@ export const services: Service[] = [
     title: "Credit Score Rebuilding",
     short: "After closure, we guide you on getting your CIBIL record updated and rebuilding your credit score over time.",
     keywords: ["credit score rebuilding", "improve CIBIL score after settlement", "settled to closed CIBIL", "CIBIL correction", "CIBIL score repair"],
+    imageAlt: "Phone showing a credit score app",
     icon: "M3 17h2v4H3zm4-4h2v8H7zm4-4h2v12h-2zm4-3h2v15h-2zm4-4h2v19h-2z",
     intro:
       "Closing your debts is the first step. The next is rebuilding the credit history you'll need for a home loan, a card or even a job check in future. We show you how to get your reports corrected and build your score back up.",

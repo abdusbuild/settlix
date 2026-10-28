@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import CountUp from "@/components/CountUp";
 import CtaBand from "@/components/CtaBand";
@@ -36,11 +37,16 @@ export default function AboutPage() {
               already exist to protect them.
             </p>
           </div>
-          <div className="mission-card reveal reveal-right">
-            <h3>Our mission</h3>
-            <p>To help every distressed borrower reach a fair, affordable resolution with their lenders, without fear, harassment or false promises.</p>
-            <h3>Our promise</h3>
-            <p>We&apos;ll tell you the truth about your situation, explain every fee upfront, and stay with you until your accounts are closed.</p>
+          <div className="about-visual reveal reveal-right">
+            <div className="cover">
+              <Image src="/images/about-consultation.jpg" alt="Advisor reviewing financial documents with a calculator" fill sizes="(max-width: 920px) 100vw, 540px" />
+            </div>
+            <div className="mission-card">
+              <h3>Our mission</h3>
+              <p>To help every distressed borrower reach a fair, affordable resolution with their lenders, without fear, harassment or false promises.</p>
+              <h3>Our promise</h3>
+              <p>We&apos;ll tell you the truth about your situation, explain every fee upfront, and stay with you until your accounts are closed.</p>
+            </div>
           </div>
         </div>
       </section>

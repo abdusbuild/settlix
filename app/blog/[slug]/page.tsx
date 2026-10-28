@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import CtaBand from "@/components/CtaBand";
@@ -49,7 +50,7 @@ export default async function PostPage({ params }: Props) {
           dateModified: post.updated ?? post.published,
           url,
           mainEntityOfPage: url,
-          image: `${url}/opengraph-image`,
+          image: `${site.url}/images/blog/${post.slug}.jpg`,
           inLanguage: "en-IN",
           author: { "@id": orgId },
           publisher: { "@id": orgId },
@@ -69,6 +70,9 @@ export default async function PostPage({ params }: Props) {
       <section className="section">
         <div className="container legal-grid">
           <article className="prose">
+            <div className="cover">
+              <Image src={`/images/blog/${post.slug}.jpg`} alt={post.imageAlt} fill priority sizes="(max-width: 920px) 100vw, 760px" />
+            </div>
             <p className="updated">
               By {site.name} Team · <time dateTime={post.published}>{formatDate(post.published)}</time>
               {post.updated && <> · Updated <time dateTime={post.updated}>{formatDate(post.updated)}</time></>} · {post.readMinutes} min read
