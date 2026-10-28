@@ -2,9 +2,11 @@ import Link from "next/link";
 import Calculator from "@/components/Calculator";
 import CtaBand from "@/components/CtaBand";
 import FaqList from "@/components/FaqList";
+import JsonLd from "@/components/JsonLd";
 import { Icon } from "@/components/Icons";
 import LeadForm from "@/components/LeadForm";
 import { faqGroups, heroPoints, problems, rights, steps, trustItems, whyItems } from "@/lib/content";
+import { faqJsonLd } from "@/lib/seo";
 import { services } from "@/lib/services";
 import { primaryPhone, whatsappLink } from "@/lib/site";
 
@@ -13,6 +15,7 @@ const homeFaqs = faqGroups.flatMap((g) => g.items).slice(0, 5);
 export default function Home() {
   return (
     <>
+      <JsonLd data={faqJsonLd(homeFaqs)} />
       {/* Hero */}
       <section className="hero">
         <div className="container hero-grid">

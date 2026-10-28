@@ -5,7 +5,7 @@ import PageHero from "@/components/PageHero";
 import { pageMeta } from "@/lib/seo";
 import { primaryPhone, site } from "@/lib/site";
 
-export const metadata: Metadata = pageMeta("Contact Us", "Call, WhatsApp or visit Settlix in Sector 2, Noida. Free and confidential first consultation for loan settlement and harassment support.", "/contact");
+export const metadata: Metadata = pageMeta("Contact Us – Free Loan Settlement Consultation", "Call, WhatsApp or visit Settlix in Sector 2, Noida. Free and confidential first consultation for loan settlement, credit card settlement and recovery harassment support.", "/contact", ["loan settlement consultation", "contact loan settlement company", "loan settlement office Noida", "debt help helpline"]);
 
 export default function ContactPage() {
   return (

@@ -6,7 +6,7 @@ import { borrowerRights, complaintSteps, rights } from "@/lib/content";
 import { pageMeta } from "@/lib/seo";
 import { primaryPhone } from "@/lib/site";
 
-export const metadata: Metadata = pageMeta("Your Rights as a Borrower", "What recovery agents can and can't do under RBI rules, your rights as a borrower, and how to complain about harassment.", "/your-rights");
+export const metadata: Metadata = pageMeta("Borrower Rights & RBI Recovery Agent Rules", "What recovery agents can and can't do under RBI rules, your rights as a borrower in India, and how to complain about loan recovery harassment.", "/your-rights", ["borrower rights India", "RBI guidelines for recovery agents", "recovery agent calling time RBI", "loan recovery harassment complaint", "fair practices code"]);
 
 export default function RightsPage() {
   return (

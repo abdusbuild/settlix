@@ -6,7 +6,7 @@ import { notDo, trustItems, values, whyItems } from "@/lib/content";
 import { pageMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = pageMeta("About Us", "Settlix is a Noida-based debt advisory helping borrowers across India settle loans lawfully and live free from recovery harassment.", "/about");
+export const metadata: Metadata = pageMeta("About Settlix – Debt Advisory in Noida", "Settlix is a Noida-based debt advisory helping borrowers across India settle personal loans and credit cards lawfully and live free from recovery agent harassment.", "/about", ["about Settlix", "debt advisory Noida", "loan settlement consultants", "debt counselling India"]);
 
 export default function AboutPage() {
   return (

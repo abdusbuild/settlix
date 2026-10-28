@@ -3,7 +3,7 @@ import LegalPage from "@/components/LegalPage";
 import { pageMeta } from "@/lib/seo";
 import { primaryPhone } from "@/lib/site";
 
-export const metadata: Metadata = pageMeta("Disclaimer", "Important information about the nature of Settlix's services and the limits of what we can promise.", "/disclaimer");
+export const metadata: Metadata = pageMeta("Disclaimer", "Important information about the nature of Settlix's services and the limits of what we can promise.", "/disclaimer", ["Settlix disclaimer"]);
 
 export default function DisclaimerPage() {
   return (

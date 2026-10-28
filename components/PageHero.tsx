@@ -1,4 +1,6 @@
 import Link from "next/link";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbJsonLd } from "@/lib/seo";
 
 type Crumb = { href: string; label: string };
 
@@ -15,6 +17,7 @@ export default function PageHero({
 }) {
   return (
     <section className="page-hero">
+      {crumbs.length > 0 && <JsonLd data={breadcrumbJsonLd(crumbs)} />}
       <div className="container">
         <nav className="crumbs" aria-label="Breadcrumb">
           <Link href="/">Home</Link>

@@ -3,7 +3,7 @@ import LegalPage from "@/components/LegalPage";
 import { pageMeta } from "@/lib/seo";
 import { primaryPhone, site } from "@/lib/site";
 
-export const metadata: Metadata = pageMeta("Privacy Policy", "How Settlix collects, uses, shares and protects your personal information.", "/privacy-policy");
+export const metadata: Metadata = pageMeta("Privacy Policy", "How Settlix collects, uses, shares and protects your personal information.", "/privacy-policy", ["Settlix privacy policy"]);
 
 export default function PrivacyPage() {
   return (

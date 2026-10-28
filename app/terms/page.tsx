@@ -4,7 +4,7 @@ import LegalPage from "@/components/LegalPage";
 import { pageMeta } from "@/lib/seo";
 import { primaryPhone } from "@/lib/site";
 
-export const metadata: Metadata = pageMeta("Terms of Use", "Terms governing your use of the Settlix website and services.", "/terms");
+export const metadata: Metadata = pageMeta("Terms of Use", "Terms governing your use of the Settlix website and services.", "/terms", ["Settlix terms of use"]);
 
 export default function TermsPage() {
   return (

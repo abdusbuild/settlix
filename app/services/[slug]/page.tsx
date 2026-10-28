@@ -3,11 +3,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import CtaBand from "@/components/CtaBand";
 import FaqList from "@/components/FaqList";
+import JsonLd from "@/components/JsonLd";
 import { Icon } from "@/components/Icons";
 import PageHero from "@/components/PageHero";
-import { pageMeta } from "@/lib/seo";
+import { faqJsonLd, orgId, pageMeta } from "@/lib/seo";
 import { getService, services } from "@/lib/services";
-import { primaryPhone, whatsappLink } from "@/lib/site";
+import { primaryPhone, site, whatsappLink } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -19,7 +20,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const service = getService((await params).slug);
-  return service ? pageMeta(service.title, service.short, `/services/${service.slug}`, true) : {};
+  return service ? pageMeta(service.title, service.short, `/services/${service.slug}`, service.keywords, true) : {};
 }
 
 export default async function ServicePage({ params }: Props) {
@@ -30,6 +31,19 @@ export default async function ServicePage({ params }: Props) {
 
   return (
     <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: service.title,
+          serviceType: service.title,
+          description: service.intro,
+          url: `${site.url}/services/${service.slug}`,
+          provider: { "@id": orgId },
+          areaServed: { "@type": "Country", name: "India" },
+        }}
+      />
+      <JsonLd data={faqJsonLd(service.faqs)} />
       <PageHero
         eyebrow="Our services"
         title={service.title}

@@ -4,7 +4,7 @@ import PageHero from "@/components/PageHero";
 import { documents, steps } from "@/lib/content";
 import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = pageMeta("How It Works", "Our 5-step process: free consultation, case assessment, harassment protection, negotiation with your lender, and settlement with a written NOC.", "/how-it-works");
+export const metadata: Metadata = pageMeta("How Loan Settlement Works", "Our 5-step loan settlement process: free consultation, case assessment, harassment protection, negotiation with your lender, and settlement with a written NOC.", "/how-it-works", ["loan settlement process", "how to settle a loan", "loan settlement steps", "settlement letter", "NOC after loan settlement"]);
 
 export default function HowItWorksPage() {
   return (

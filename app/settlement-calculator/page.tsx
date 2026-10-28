@@ -4,7 +4,7 @@ import CtaBand from "@/components/CtaBand";
 import PageHero from "@/components/PageHero";
 import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = pageMeta("Settlement Estimator", "Estimate an indicative settlement range for your personal loan or credit card based on the outstanding amount and how long it has been overdue.", "/settlement-calculator");
+export const metadata: Metadata = pageMeta("Loan Settlement Calculator", "Free loan settlement calculator: estimate an indicative settlement range for your personal loan or credit card based on the outstanding amount and how long it has been overdue.", "/settlement-calculator", ["loan settlement calculator", "credit card settlement calculator", "settlement amount estimate", "how much to settle a loan"]);
 
 const factors = [
   { title: "How long it's been overdue", text: "Accounts that have been in default longer often settle for a lower share of the outstanding." },

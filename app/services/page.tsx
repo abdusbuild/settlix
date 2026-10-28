@@ -6,7 +6,7 @@ import PageHero from "@/components/PageHero";
 import { pageMeta } from "@/lib/seo";
 import { services } from "@/lib/services";
 
-export const metadata: Metadata = pageMeta("Our Services", "Personal loan and credit card settlement, anti-harassment support, legal notice replies, RBI Ombudsman complaints and credit score rebuilding.", "/services");
+export const metadata: Metadata = pageMeta("Loan Settlement & Debt Relief Services", "Personal loan and credit card settlement, business loan settlement, anti-harassment support, legal notice replies, RBI Ombudsman complaints and credit score rebuilding.", "/services", ["loan settlement services", "debt relief services India", "personal loan settlement", "credit card settlement", "recovery agent harassment help"]);
 
 export default function ServicesPage() {
   return (

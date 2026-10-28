@@ -2,15 +2,17 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import JsonLd from "@/components/JsonLd";
 import RevealObserver from "@/components/RevealObserver";
-import { baseOpenGraph, baseTwitter } from "@/lib/seo";
+import { baseKeywords, baseOpenGraph, baseTwitter, orgId, websiteId } from "@/lib/seo";
+import { services } from "@/lib/services";
 import { site } from "@/lib/site";
 import "./globals.css";
 
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["600", "700", "800"], variable: "--font-montserrat" });
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-inter" });
 
-const defaultTitle = "Settlix | Loan Settlement & Anti-Harassment Support in India";
+const defaultTitle = "Settlix | Loan Settlement, Credit Card Settlement & Recovery Harassment Help in India";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -24,13 +26,19 @@ export const metadata: Metadata = {
     "loan settlement",
     "personal loan settlement",
     "credit card settlement",
+    "one time settlement",
+    "OTS loan settlement",
+    "business loan settlement",
     "recovery agent harassment",
-    "stop recovery calls",
+    "stop recovery agent calls",
+    "loan app harassment",
     "legal notice reply",
     "RBI ombudsman complaint",
-    "debt settlement India",
-    "loan settlement Noida",
+    "unable to pay EMI",
+    "CIBIL score after settlement",
+    "debt relief India",
     "debt advisory Delhi NCR",
+    ...baseKeywords,
   ],
   authors: [{ name: site.name, url: site.url }],
   creator: site.name,
@@ -54,13 +62,20 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
+  // Set these env vars to the codes from Google Search Console / Bing Webmaster Tools to verify ownership
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
+      : undefined,
+  },
   appleWebApp: { title: site.name, statusBarStyle: "default" },
 };
 
 // Structured data so Google can show the business name, phone, address and hours
-const jsonLd = {
-  "@context": "https://schema.org",
+const business = {
   "@type": "FinancialService",
+  "@id": orgId,
   name: site.name,
   slogan: site.tagline,
   description: site.description,
@@ -69,7 +84,16 @@ const jsonLd = {
   image: `${site.url}/opengraph-image`,
   telephone: site.phones[0].tel,
   priceRange: "Free consultation",
-  areaServed: "IN",
+  areaServed: { "@type": "Country", name: "India" },
+  knowsLanguage: ["en", "hi"],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Debt resolution services",
+    itemListElement: services.map((s) => ({
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: s.title, url: `${site.url}/services/${s.slug}` },
+    })),
+  },
   address: {
     "@type": "PostalAddress",
     streetAddress: "Office No. 205, Building No. B-42, Sector 2",
@@ -87,15 +111,30 @@ const jsonLd = {
   contactPoint: site.phones.map((p) => ({ "@type": "ContactPoint", telephone: p.tel, contactType: "customer service", availableLanguage: ["en", "hi"] })),
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    business,
+    {
+      "@type": "WebSite",
+      "@id": websiteId,
+      name: site.name,
+      url: site.url,
+      inLanguage: "en-IN",
+      publisher: { "@id": orgId },
+    },
+  ],
+};
+
 export const viewport: Viewport = {
   themeColor: "#0B1B3A",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${montserrat.variable} ${inter.variable}`}>
+    <html lang="en-IN" className={`${montserrat.variable} ${inter.variable}`}>
       <body>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <JsonLd data={jsonLd} />
         <Header />
         <main>{children}</main>
         <Footer />
