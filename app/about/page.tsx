@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import CountUp from "@/components/CountUp";
 import CtaBand from "@/components/CtaBand";
 import PageHero from "@/components/PageHero";
 import { notDo, trustItems, values, whyItems } from "@/lib/content";
@@ -48,7 +49,7 @@ export default function AboutPage() {
         <div className="container trust-grid">
           {trustItems.map((t) => (
             <div className="trust-item" key={t.value}>
-              <strong>{t.value}</strong>
+              <strong><CountUp value={t.value} /></strong>
               <span>{t.label}</span>
             </div>
           ))}

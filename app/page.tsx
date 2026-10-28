@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Calculator from "@/components/Calculator";
+import CountUp from "@/components/CountUp";
 import CtaBand from "@/components/CtaBand";
 import FaqList from "@/components/FaqList";
 import JsonLd from "@/components/JsonLd";
@@ -50,7 +51,7 @@ export default function Home() {
         <div className="container trust-grid">
           {trustItems.map((t) => (
             <div className="trust-item reveal reveal-scale" key={t.value}>
-              <strong>{t.value}</strong>
+              <strong><CountUp value={t.value} /></strong>
               <span>{t.label}</span>
             </div>
           ))}

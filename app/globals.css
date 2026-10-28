@@ -183,6 +183,7 @@ address { font-style: normal; }
 .trust-item { padding: 26px 16px; text-align: center; border-right: 1px solid rgba(255, 255, 255, .1); }
 .trust-item:last-child { border-right: 0; }
 .trust-item strong { display: block; font-family: var(--font-head); font-size: 1.5rem; color: #7FE0D5; }
+.count-up { font-variant-numeric: tabular-nums; }
 .trust-item span { font-size: .9rem; color: #C9D3E6; }
 
 /* Problems */
