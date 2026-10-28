@@ -2,6 +2,7 @@ import Link from "next/link";
 import Calculator from "@/components/Calculator";
 import CountUp from "@/components/CountUp";
 import CtaBand from "@/components/CtaBand";
+import FaqArt from "@/components/FaqArt";
 import FaqList from "@/components/FaqList";
 import JsonLd from "@/components/JsonLd";
 import { Icon } from "@/components/Icons";
@@ -13,7 +14,7 @@ import { faqJsonLd } from "@/lib/seo";
 import { services } from "@/lib/services";
 import { primaryPhone, whatsappLink } from "@/lib/site";
 
-const homeFaqs = faqGroups.flatMap((g) => g.items).slice(0, 5);
+const homeFaqs = faqGroups.flatMap((g) => g.items).slice(0, 7);
 
 export default function Home() {
   return (
@@ -183,15 +184,16 @@ export default function Home() {
 
       {/* FAQ */}
       <section className="section faq">
-        <div className="container faq-wrap">
-          <div className="section-head reveal">
-            <span className="eyebrow">FAQs</span>
-            <h2>Questions borrowers ask us</h2>
+        <div className="container faq-split">
+          <div className="faq-intro reveal reveal-left">
+            <h2>
+              Frequently Asked <span className="accent">Questions</span>
+            </h2>
+            <p>Your questions matter. Here are straight answers to the ones we hear most.</p>
+            <FaqArt />
+            <Link href="/faq" className="btn btn-outline">View all FAQs <span className="arrow" aria-hidden="true">→</span></Link>
           </div>
-          <FaqList items={homeFaqs} />
-          <p className="section-more reveal">
-            <Link href="/faq" className="btn btn-outline">View all FAQs</Link>
-          </p>
+          <FaqList items={homeFaqs} openFirst={false} />
         </div>
       </section>
 
