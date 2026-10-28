@@ -494,11 +494,77 @@ input[type="range"] { width: 100%; accent-color: var(--teal); height: 6px; curso
 .hero-points li:nth-child(3) { animation-delay: .55s; }
 .hero-points li:nth-child(4) { animation-delay: .65s; }
 .hero-points li:nth-child(n+5) { animation-delay: .75s; }
+/* Home hero enters from several directions: headline drops in, actions rise, form slides from the right */
+@keyframes drop-in {
+  from { opacity: 0; transform: translateY(-34px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes slide-from-right {
+  from { opacity: 0; transform: translateX(60px); }
+  to { opacity: 1; transform: none; }
+}
+.hero-copy > h1 { animation-name: drop-in; animation-duration: 1s; }
+.hero-copy > .hero-actions { animation-delay: .7s; }
+.hero .hero-card { animation: slide-from-right 1s .3s cubic-bezier(.22, 1, .36, 1) both; }
+
+/* Rotating phrase: every phrase sits in the same grid cell so the headline never reflows */
+.rotator { display: grid; }
+.rotator-word { grid-area: 1 / 1; opacity: 0; transform: translateY(60%); transition: opacity .5s ease, transform .6s var(--ease-out); }
+.rotator-word.is-active { opacity: 1; transform: none; }
+.rotator-word.is-leaving { transform: translateY(-60%); }
+
+/* Section headings: a gradient rule grows out from the centre as the heading reveals */
+.section-head h2::after {
+  content: ""; display: block; width: 72px; height: 3px; margin: 16px auto 0; border-radius: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--teal));
+  transition: transform .9s .25s var(--ease-out);
+}
+.section-head.reveal:not(.visible) h2::after { transform: scaleX(0); }
+
+/* Desktop nav links fade down one after another on load; the call button keeps a soft pulse */
+@keyframes nav-in {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes cta-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(14, 140, 130, .45), 0 8px 20px rgba(10, 61, 154, .25); }
+  70%, 100% { box-shadow: 0 0 0 14px rgba(14, 140, 130, 0), 0 8px 20px rgba(10, 61, 154, .25); }
+}
+@media (min-width: 1081px) {
+  .nav > * { animation: nav-in .6s var(--ease-out) both; }
+  .nav > :nth-child(2) { animation-delay: .06s; }
+  .nav > :nth-child(3) { animation-delay: .12s; }
+  .nav > :nth-child(4) { animation-delay: .18s; }
+  .nav > :nth-child(5) { animation-delay: .24s; }
+  .nav > :nth-child(6) { animation-delay: .3s; }
+  .nav > :nth-child(7) { animation-delay: .36s; }
+  .nav > :nth-child(8) { animation-delay: .42s; }
+  .nav > :nth-child(n+9) { animation-delay: .48s; }
+}
+.nav .nav-cta { animation: nav-in .6s .5s var(--ease-out) both, cta-pulse 2.6s 1.4s ease-out infinite; }
+
+/* Services marquee: two copies of the list scroll left forever and pause on hover */
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee {
+  overflow: hidden; padding: 22px 0; background: var(--bg-soft); border-bottom: 1px solid var(--line);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee-track { display: flex; width: max-content; animation: marquee 38s linear infinite; }
+.marquee:hover .marquee-track, .marquee:focus-within .marquee-track { animation-play-state: paused; }
+.marquee-list { display: flex; list-style: none; margin: 0; padding: 0; }
+.marquee-list li { display: flex; align-items: center; }
+.marquee-list li::after { content: "✦"; color: var(--teal); font-size: .9rem; margin: 0 28px; }
+.marquee-list a { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.05rem, 2vw, 1.35rem); color: var(--navy); white-space: nowrap; transition: color .25s ease; }
+.marquee-list a:hover { color: var(--teal); text-decoration: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal, .reveal.reveal-left, .reveal.reveal-right, .reveal.reveal-scale { opacity: 1; transform: none; transition: none; }
-  .hero-copy > *, .page-hero .container > *, .hero-points li { animation: none; }
+  .hero-copy > *, .page-hero .container > *, .hero-points li, .hero .hero-card, .nav > *, .nav .nav-cta { animation: none; }
+  .marquee { overflow-x: auto; }
+  .marquee-track { animation: none; }
+  .marquee-list[aria-hidden] { display: none; }
   .btn, .service, .service-row, .post-card, .service-ico::before, .arrow, .header-inner, .brand img, .nav a::after { transition-duration: .01ms !important; }
 }
 

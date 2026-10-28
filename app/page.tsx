@@ -6,6 +6,8 @@ import FaqList from "@/components/FaqList";
 import JsonLd from "@/components/JsonLd";
 import { Icon } from "@/components/Icons";
 import LeadForm from "@/components/LeadForm";
+import Marquee from "@/components/Marquee";
+import RotatingWords from "@/components/RotatingWords";
 import { faqGroups, heroPoints, problems, rights, steps, trustItems, whyItems } from "@/lib/content";
 import { faqJsonLd } from "@/lib/seo";
 import { services } from "@/lib/services";
@@ -23,7 +25,8 @@ export default function Home() {
           <div className="hero-copy">
             <span className="eyebrow">Loan Settlement · Anti-Harassment · Legal Support</span>
             <h1>
-              Behind on EMIs and dreading the next call? <span className="accent">Let&apos;s settle it.</span>
+              Behind on EMIs and dreading the next call?{" "}
+              <RotatingWords className="accent" words={["Let's settle it.", "Let's stop the calls.", "Let's end the stress."]} />
             </h1>
             <p className="lead">
               Settlix helps borrowers facing genuine financial hardship negotiate settlements on personal loans, credit
@@ -38,7 +41,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero-card reveal reveal-right" id="consult">
+          <div className="hero-card" id="consult">
             <h2>Request a callback</h2>
             <p className="muted">Share a few details and our team will call you back.</p>
             <LeadForm variant="hero" />
@@ -57,6 +60,8 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <Marquee items={services.map((s) => ({ href: `/services/${s.slug}`, label: s.title }))} />
 
       {/* Problems */}
       <section className="section problems">
