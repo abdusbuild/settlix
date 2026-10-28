@@ -38,6 +38,13 @@ export default function Footer() {
               ))}
             </ul>
           </FooterAccordion>
+          <FooterAccordion title="Legal">
+            <ul>
+              {legalLinks.map((l) => (
+                <li key={l.href}><Link href={l.href}>{l.label}</Link></li>
+              ))}
+            </ul>
+          </FooterAccordion>
           <FooterAccordion title="Reach us">
             <ul>
               {site.phones.map((p) => (
@@ -60,11 +67,10 @@ export default function Footer() {
           <label htmlFor="disclaimer-more" className="disclaimer-more" aria-hidden="true"></label>
           <div className="footer-bottom">
             <p className="copy">© {new Date().getFullYear()} Settlix. All rights reserved.</p>
-            <ul className="legal-links">
-              {legalLinks.map((l) => (
-                <li key={l.href}><Link href={l.href}>{l.label}</Link></li>
-              ))}
-            </ul>
+            <p className="credit">
+              Designed &amp; developed by{" "}
+              <a href="https://abdus-portfolio-rho.vercel.app/" target="_blank" rel="noopener">Abdus</a>
+            </p>
           </div>
         </div>
       </footer>

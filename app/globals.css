@@ -478,8 +478,8 @@ input[type="range"] { width: 100%; accent-color: var(--teal); height: 6px; curso
 .map iframe { width: 100%; height: 360px; border: 0; border-radius: 6px 6px 6px var(--leaf); box-shadow: var(--shadow); }
 
 /* Footer */
-.footer { background: var(--navy); color: #AEBBD3; padding: 64px 0 24px; font-size: .93rem; }
-.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255, 255, 255, .1); }
+.footer { background: var(--navy); color: #AEBBD3; padding: 64px 0 96px; font-size: .93rem; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1.1fr 1fr .8fr 1fr; gap: 36px; padding-bottom: 40px; border-bottom: 1px solid rgba(255, 255, 255, .1); }
 .footer-brand img { height: 52px; width: auto; margin-bottom: 18px; }
 .footer h4 { color: #fff; font-size: 1rem; margin-bottom: 16px; }
 .footer-col summary { list-style: none; cursor: default; }
@@ -490,9 +490,9 @@ input[type="range"] { width: 100%; accent-color: var(--teal); height: 6px; curso
 .footer-disclaimer { padding-top: 24px; font-size: .82rem; color: #8494B1; }
 .footer-disclaimer b { color: #C9D3E6; }
 .disclaimer-toggle, .disclaimer-more { display: none; }
-.footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-top: 16px; }
-.copy { margin: 0; }
-.footer .legal-links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 6px 16px; margin-top: 16px; }
+.copy, .credit { margin: 0; }
+.credit a { color: #C9D3E6; font-weight: 600; }
 
 /* Floating buttons */
 /* Floating enquire button: opens WhatsApp and call options stacked above it */
@@ -795,6 +795,7 @@ input[type="range"] { width: 100%; accent-color: var(--teal); height: 6px; curso
   .steps { grid-template-columns: repeat(3, 1fr); row-gap: 36px; }
   .steps::before { display: none; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-brand { grid-column: 1 / -1; }
 }
 @media (max-width: 1080px) {
   .nav {
@@ -866,7 +867,6 @@ input[type="range"] { width: 100%; accent-color: var(--teal); height: 6px; curso
   .service-row { grid-template-columns: auto 1fr; padding: 20px; gap: 16px; }
   .service-row .more { grid-column: 2; }
   .cta-actions .btn { flex: 1 1 100%; }
-  .footer-bottom { flex-direction: column; align-items: flex-start; }
   .disclaimer-text { margin: 0; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; overflow: hidden; }
   .disclaimer-toggle:checked ~ .disclaimer-text { display: block; -webkit-line-clamp: unset; line-clamp: none; }
   .disclaimer-more { display: inline-block; margin-top: 6px; color: #C9D3E6; font-weight: 600; cursor: pointer; }
