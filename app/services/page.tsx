@@ -28,7 +28,7 @@ export default function ServicesPage() {
                   <h2>{s.title}</h2>
                   <p>{s.short}</p>
                 </div>
-                <span className="more">Learn more →</span>
+                <span className="more">Learn more <span className="arrow" aria-hidden="true">→</span></span>
               </Link>
             ))}
           </div>

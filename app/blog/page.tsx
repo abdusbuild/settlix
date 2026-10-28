@@ -28,6 +28,7 @@ export default function BlogPage() {
                 <span className="post-meta">
                   <time dateTime={p.published}>{formatDate(p.published)}</time> · {p.readMinutes} min read
                 </span>
+                <span className="more">Read article <span className="arrow" aria-hidden="true">→</span></span>
               </Link>
             ))}
           </div>

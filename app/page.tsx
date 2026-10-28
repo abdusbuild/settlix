@@ -90,7 +90,7 @@ export default function Home() {
                 <div className="service-ico"><Icon d={s.icon} /></div>
                 <h3>{s.title}</h3>
                 <p>{s.short}</p>
-                <span className="more">Learn more →</span>
+                <span className="more">Learn more <span className="arrow" aria-hidden="true">→</span></span>
               </Link>
             ))}
           </div>
