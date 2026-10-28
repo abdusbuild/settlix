@@ -10,6 +10,7 @@ const quickLinks = [
   { href: "/settlement-calculator", label: "Settlement Estimator" },
   { href: "/your-rights", label: "Your Rights" },
   { href: "/faq", label: "FAQs" },
+  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 

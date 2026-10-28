@@ -40,6 +40,7 @@ export const navLinks = [
   { href: "/settlement-calculator", label: "Estimate" },
   { href: "/your-rights", label: "Your Rights" },
   { href: "/faq", label: "FAQs" },
+  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 
